@@ -1,0 +1,328 @@
+// app global css in SCSS form
+:root {
+  --background: #e0e0ed;
+  --background-grey: #f4f4f4;
+  --background-blue: #072AC8;
+  --text-grey: #8D91A5;
+  --title-grey: #55596D;
+  --button-secondary-background: #D0D7F9;
+  --button-primary-background: #072AC8;
+  --button-secondary-text: #5C6967;
+  --button-primary-text: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'Readex';
+  src: url(./fonts/ReadexPro-VariableFont_wght.ttf);
+}
+
+html {
+  background-color: var(--background)!important;
+}
+.background {
+  background-color: var(--background)!important;
+}
+.flex-center-index {
+  align-items: flex-start;
+}
+.top-section {
+  background-color: var(--background-blue);
+  height: 234px;
+  width: 100%;
+  position: relative;
+  padding: 16px;
+  margin-bottom: 18px;
+}
+.top-section-img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  mix-blend-mode: overlay;
+}
+.top-section-title {
+  color: #FFFFFF;
+  font-family: 'Readex';
+  font-size: 20px;
+  line-height: 28px;
+  width: 275px;
+  padding-top: 66px;
+}
+.search-bar-blue-container {
+  display: flex;
+  margin-top: 20px;
+}
+.search-bar-blue-body {
+  display: flex;
+  border-bottom: 2px solid white;
+  padding: 10px;
+  width: 270px;
+  z-index: 50;
+}
+.search-bar-blue {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: white!important;
+  width: 100%;
+  font-size: 16px;
+}
+.search-bar-blue::placeholder {
+  color: white!important;
+}
+.search-bar-filter {
+   margin-left: 25px;
+}
+.q-field--filled .q-field__control {
+  padding: 0 28px;
+}
+.relative-position {
+  margin-right: 0!important;
+}
+.search-bar-filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+.details-body {
+  padding: 25px;
+}
+.details-top {
+  padding: 22px;
+  background-color: var(--background-grey);
+}
+.details-top-title {
+  text-align: center;
+  font-family: 'Readex';
+  font-size: 24px;
+  color: #3B3B3B;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.details-about-title {
+  color: #8D91A5;
+  font-family: 'Roboto';
+  font-size: 14px;
+  text-transform: capitalize;
+}
+.col-details {
+  color: white;
+  background-color: var(--text-grey);
+  padding: 5px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.details-about-info {
+  color: #3B3B3B;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+.details-about-info-box {
+  color: #FFFFFF;
+  background-color: var(--text-grey);
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+.details-about-box {
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+.details-about-title-width {
+  width: 100px;
+}
+.details-top-subtitle {
+  margin-left: 10px;
+  text-align: center;
+  font-family: 'Readex';
+  font-size: 14px;
+  color: #3B3B3B;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.details-tab {
+  width: 100px;
+  flex: none!important;
+}
+.details-graphic-container {
+  position: relative;
+}
+.details-graphic {
+  position: absolute;
+  right: 0px;
+}
+.details-about-container {
+  position: relative;
+}
+.details-top-img {
+  width: 200px;
+  margin: auto;
+  margin-top: -10px;
+  margin-bottom: -30px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.filter-body {
+  padding: 22px;
+  display: flex;
+  min-height: 740px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.filter-close-icon {
+  margin-bottom: 20px;
+}
+.q-focus-helper {
+  flex-shrink: initial!important;
+}
+.q-link {
+  flex-wrap: wrap!important;
+}
+.card {
+  margin: 22px;
+  margin-top: 0px;
+  border: none;
+  border-radius: 16px!important;
+  text-decoration: none;
+  color: #3B3B3B;
+}
+.card-header {
+  background-color: var(--background-grey);
+  border-radius: 16px 16px 0 0!important;
+  display: flex;
+  justify-content: center;
+  height: 159px;
+  max-height: 159px;
+  border-bottom: none;
+}
+.card-image {
+  
+}
+.card-body {
+  padding: 14px;
+  padding-top: 18px;
+  border-radius: 0 0 16px 16px!important;
+}
+.card-name {
+  font-family: 'Readex';
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  text-decoration: none!important;
+}
+.card-order {
+  font-family: 'Roboto';
+  color: var(--text-grey);
+  font-size: 14px;
+}
+.card-info-body {
+  display: flex;
+  padding: 12px 0;
+}
+.card-info {
+  display: flex;
+}
+.card-info-left {
+  padding-right: 20px;
+}
+.card-info-title {
+  font-family: 'Roboto';
+  color: var(--text-grey);
+  font-size: 14px;
+  padding-right: 8px;
+}
+.card-info-value {
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+.card-types {
+  display: flex;
+}
+.card-type {
+  color: #8D91A5;
+  font-size: 14px;
+  padding: 5px 10px;
+  background-color: var(--background-grey);
+  border-radius: 50px;
+  margin-right: 15px;
+}
+.q-pagination__content {
+  margin-bottom: 25px;
+  flex-shrink: initial!important;
+  max-width: auto!important;
+  width: auto!important;
+  margin-left: -10px!important;
+}
+.q-pagination {
+  justify-content: center;
+}
+.q-pagination__middle {
+  display: contents;
+}
+.search-result-box {
+  font-family: 'Readex';
+  font-size: 16px;
+  color: var(--title-grey);
+  padding: 15px;
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  margin: 0 22px;
+  margin-bottom: 20px;
+}
+.q-field__native {
+  padding-left: 14px;
+}
+.q-field__control {
+  max-width: initial!important;
+}
+.q-field__marginal {
+  width: auto!important;
+}
+.q-field__label {
+  left: 16px!important;
+}
+.select-input {
+  background-color: var(--background-grey);
+  // border-bottom: 1px solid grey!important;
+  border-radius: 8px 8px 0 0;
+  margin: 0px;
+}
+.q-chip {
+  width: auto!important;
+}
+.button-secondary {
+  background-color: var(--button-secondary-background);
+  color: var(--button-secondary-text);
+  font-family: "Readex";
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  padding: 15px;
+  width: 150px;
+}
+.button-primary {
+  background-color: var(--button-primary-background);
+  color: var(--button-primary-text);
+  font-family: "Readex";
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  padding: 15px;
+  width: 150px;
+}

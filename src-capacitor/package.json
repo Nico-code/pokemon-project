@@ -1,0 +1,12 @@
+{
+  "name": "quasar-pokemon",
+  "version": "0.0.1",
+  "description": "Reto quasar pokemon",
+  "author": "SOTR",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^2.5.0",
+    "@capacitor/cli": "^2.0.0",
+    "@capacitor/core": "^2.0.0"
+  }
+}
