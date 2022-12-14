@@ -5,32 +5,25 @@
       <div class="top-section-title">What pokemon are you looking for?</div>
       <div class="search-bar-blue-container">
         <div class="search-bar-blue-body">
-          <input @keyup="searchPokemons" v-model="pokemonQuery" type="text" class="search-bar-blue" style="max-width: 400px" placeholder="Search pokemon">
-          <img src="../assets/search.svg" alt="">
+          <input v-model="pokemonQuery" type="text" class="search-bar-blue" style="max-width: 400px" placeholder="Search pokemon">
+          <a @click="searchPokemons"><img src="../assets/search.svg" alt=""></a>
         </div>
         <a @click="redirectFilters" class="search-bar-filter-container"><img class="search-bar-filter" src="../assets/filters.svg" alt=""></a>
       </div>
     </div>
-
-    <div class="d-flex justify-content-center">
+    <div class="search-result-box" v-if="searchStatus.active">
+      {{ searchStatus.count }} {{ searchStatus.count > 1 ? "Resultados" : "Resultado" }}
+    </div>
+    <div class="search-result-box" v-if="!pokemonsRender.length && pokemons.length">
+      No results found
+    </div>
+    <div v-if="loading" class="d-flex justify-content-center">
       <q-spinner
         class="my-5"
-        v-if="loading"
         color="primary"
         size="3em"
       />
     </div>
-
-    <div class="search-result-box" v-if="searchStatus.active">
-      {{ searchStatus.count }} {{ searchStatus.count > 1 ? "Resultados" : "Resultado" }}
-        
-    </div>
-
-    <div class="search-result-box" v-if="!pokemonsRender.length && pokemons.length">
-      No results found
-    </div>
-
-
     <a @click="viewDetails(pokemon.id)" class="card" v-else v-for="pokemon in pokemonsRender" :key="pokemon.name">
       <div class="card-header">
         <img class="card-image" :src="pokemon.imageUrl" :alt="pokemon.name" />
@@ -55,9 +48,8 @@
         </div>
       </div>
     </a>
-
     <q-pagination
-      v-if="pokemonsRender.length >= 5"
+      v-if="pokemonsRender.length >= 5 && !loading"
       class="pagination"
       v-model="currentPage"
       :max="pokemonLenght / 5"
@@ -82,12 +74,12 @@ export default defineComponent({
   },
   watch: {
     currentPage(newPage, oldPage) {
-      this.filterPokemons({page: newPage, navigator: true, name: this.pokemonQuery, moves: this.$route.query.moves, level: this.$route.query.level, types: this.$route.query.types})
+      this.filterPokemons({page: newPage, navigator: true, name: this.pokemonQuery.toLowerCase(), moves: this.$route.query.moves, level: this.$route.query.level, types: this.$route.query.types})
     }
   },
   methods: {
     searchPokemons(){
-      this.filterPokemons({ name: this.pokemonQuery, search: true, page: this.currentPage })
+      this.filterPokemons({ page: 1, name: this.pokemonQuery.toLowerCase(), search: true, page: this.currentPage })
     },
     redirectFilters(){
       this.$router.push('/filters')
@@ -98,12 +90,13 @@ export default defineComponent({
   },
   setup() {
     const store = pokemonStore();
-    const { pokemons, pokemonsRender, pokemonLenght, searchStatus, loading } = storeToRefs(store);
+    const { pokemons, pokemonsRender, pokemonsFiltered, pokemonLenght, searchStatus, loading } = storeToRefs(store);
     const { getPokemons, filterPokemons } = store;
     return {
       pokemons,
       pokemonLenght,
       pokemonsRender,
+      pokemonsFiltered,
       searchStatus,
       loading,
       getPokemons,
@@ -111,7 +104,7 @@ export default defineComponent({
     };
   },
   created(){
-    if (this.$route.query.filter) {
+    if (this.$route.query.filter && this.pokemonsRender.length) {
       this.filterPokemons({ page: 1, filter: true, moves: this.$route.query.moves, level: this.$route.query.level, types: this.$route.query.types})
     } else {
       this.getPokemons({ page: 1})
