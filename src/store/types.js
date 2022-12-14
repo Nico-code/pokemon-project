@@ -9,7 +9,6 @@ export const typesStore = defineStore('types', {
     getTypes() {
       axios.get(`https://pokeapi.co/api/v2/type`)
       .then(res => {
-        console.log(res.data)
         this.types = res.data.results.map(type => type.name)
       })
     },
