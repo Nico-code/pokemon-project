@@ -7,7 +7,6 @@
       <q-select class="select-input mb-4" v-model="levelSelected" :options="levelsOptions" label="Select experience level" />
       <q-select class="select-input" v-model="typesSelected" multiple :options="types" use-chips stack-label label="Pokemon type" />
     </div>
-    {{pokemons.length }}
     <div class="d-flex justify-content-between container-buttons-bottom">
       <button @click="redirectHome" class="button-secondary">Cancel</button>
       <button @click="filter" class="button-primary">Filter</button>
